@@ -1,7 +1,17 @@
 export function caesarCipher(str, shift) {
   return str
     .split("")
-    .map((char) => alphabet[alphabet.indexOf(char) + shift])
+    .map((char) => {
+      if (!/^[A-Z]$/i.test(char)) return char;
+
+      let shiftedIndex = (alphabet.indexOf(char.toLowerCase()) + shift) % 26;
+
+      if (char === char.toUpperCase()) {
+        return alphabet[shiftedIndex].toUpperCase();
+      } else {
+        return alphabet[shiftedIndex];
+      }
+    })
     .join("");
 }
 
