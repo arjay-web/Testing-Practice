@@ -8,3 +8,12 @@ test("analyze array", () => {
     length: 6,
   });
 });
+
+test("analyze array with negative numbers", () => {
+  expect(analyzeArray([-5, 10, 0, -2, 7])).toEqual({
+    average: 2,
+    min: -5,
+    max: 10,
+    length: 5,
+  });
+});
